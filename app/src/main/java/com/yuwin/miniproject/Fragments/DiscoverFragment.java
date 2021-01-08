@@ -103,14 +103,15 @@ public class DiscoverFragment extends Fragment {
 
     private void getData(String collection, List<DiscoverRestaurant> data) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        int num = mRandom.nextInt(15);
-        String numText = num + "Km";
+
         db.collection(collection)
                 .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
 
                         for (QueryDocumentSnapshot document : task.getResult()) {
+                            int num = mRandom.nextInt(15);
+                            String numText = num + "Km";
                             data.add(new DiscoverRestaurant(
                                     document.getData().get("img").toString(),
                                     document.getData().get("name").toString(),
