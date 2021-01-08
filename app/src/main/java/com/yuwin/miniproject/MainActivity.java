@@ -51,6 +51,9 @@ public class MainActivity extends AppCompatActivity  {
 
         Set<Integer> topLevelDestinations = new HashSet<>();
         topLevelDestinations.add(R.id.discoverFragment);
+        topLevelDestinations.add(R.id.selectedPlaceFragment);
+        topLevelDestinations.add(R.id.selectedMealFragment);
+        topLevelDestinations.add(R.id.upsellFragment);
         topLevelDestinations.add(R.id.userFragment);
         topLevelDestinations.add(R.id.foodItemFragment);
         topLevelDestinations.add(R.id.favouriteFragment);
@@ -114,7 +117,7 @@ public class MainActivity extends AppCompatActivity  {
             return;
         }
 
-
-         NavigationUI.navigateUp(navController, appBarConfiguration);
+        super.onBackPressed();
+//         NavigationUI.navigateUp(navController, appBarConfiguration);
     }
 }

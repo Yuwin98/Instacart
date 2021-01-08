@@ -35,7 +35,9 @@
             app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_discoverFragment_to_foodItemFragment"
-            app:destination="@id/foodItemFragment" />
+            app:destination="@id/foodItemFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/userFragment"
@@ -69,7 +71,9 @@
             app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_selectedPlaceFragment_to_discoverFragment"
-            app:destination="@id/discoverFragment" />
+            app:destination="@id/discoverFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/selectedMealFragment"
