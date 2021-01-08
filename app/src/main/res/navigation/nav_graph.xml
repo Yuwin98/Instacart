@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashScreenFragment">
+
+    <fragment
+        android:id="@+id/foodItemFragment"
+        android:name="com.yuwin.miniproject.Fragments.FoodTypeFragment"
+        android:label="Home"
+        android:layout_gravity="center"
+        tools:layout="@layout/fragment_food_types">
+        <action
+            android:id="@+id/action_FoodItemFragment_to_discoverFragment"
+            app:destination="@id/discoverFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/discoverFragment"
+        android:name="com.yuwin.miniproject.Fragments.DiscoverFragment"
+        android:label="Discover"
+        tools:layout="@layout/fragment_discover" >
+        <action
+            android:id="@+id/action_discoverFragment_to_selectedPlaceFragment"
+            app:destination="@id/selectedPlaceFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popUpTo="@id/foodItemFragment"
+            app:popUpToInclusive="true"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_discoverFragment_to_foodItemFragment"
+            app:destination="@id/foodItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="com.yuwin.miniproject.Fragments.UserFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_user" >
+        <action
+            android:id="@+id/action_userFragment_to_foodItemFragment"
+            app:destination="@id/foodItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favouriteFragment"
+        android:name="com.yuwin.miniproject.Fragments.FavouriteFragment"
+        android:label="Favourites"
+        tools:layout="@layout/fragment_favourite" >
+        <action
+            android:id="@+id/action_favouriteFragment_to_foodItemFragment"
+            app:destination="@id/foodItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectedPlaceFragment"
+        android:name="com.yuwin.miniproject.Fragments.SelectedPlaceFragment"
+        android:label="John's Place"
+        tools:layout="@layout/fragment_selected_place">
+        <action
+            android:id="@+id/PlaceToMeal"
+            app:destination="@id/selectedMealFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_selectedPlaceFragment_to_discoverFragment"
+            app:destination="@id/discoverFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectedMealFragment"
+        android:name="com.yuwin.miniproject.Fragments.SelectedMealFragment"
+        android:label="Meal Item"
+        tools:layout="@layout/fragment_selected_meal" >
+        <action
+            android:id="@+id/Meal_to_Upsell"
+            app:destination="@id/upsellFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+        <argument
+            android:name="meal"
+            app:argType="com.yuwin.miniproject.Models.AvailableMeal" />
+    </fragment>
+    <fragment
+        android:id="@+id/upsellFragment"
+        android:name="com.yuwin.miniproject.Fragments.UpsellFragment"
+        android:label="Upsell"
+        tools:layout="@layout/fragment_upsell" >
+        <argument
+            android:name="price"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_upsellFragment_to_checkoutFragment"
+            app:destination="@id/checkoutFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.yuwin.miniproject.Fragments.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_loginFragment_to_intermediateLoadingFragment"
+            app:destination="@id/intermediateLoadingFragment"
+            app:enterAnim="@anim/from_bottom"
+            app:exitAnim="@anim/to_top" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.yuwin.miniproject.Fragments.SignUpFragment"
+        android:label="SignUpFragment"
+        tools:layout="@layout/fragment_sign_up">
+        <action
+            android:id="@+id/action_signUpFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_signUpFragment_to_intermediateLoadingFragment"
+            app:destination="@id/intermediateLoadingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/intermediateLoadingFragment"
+        android:name="com.yuwin.miniproject.Fragments.IntermediateLoadingFragment"
+        android:label="Instacart"
+        tools:layout="@layout/fragment_intermediate_loading" >
+        <action
+            android:id="@+id/action_intermediateLoadingFragment_to_foodItemFragment"
+            app:destination="@id/foodItemFragment"
+            app:enterAnim="@anim/from_bottom"
+            app:exitAnim="@anim/to_top" />
+        <argument
+            android:name="email"
+            app:argType="string" />
+        <argument
+            android:name="password"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_intermediateLoadingFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_intermediateLoadingFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.yuwin.miniproject.Fragments.SplashScreenFragment"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/action_splashScreenFragment_to_onBoardingFragment"
+            app:destination="@id/onBoardingFragment"
+            app:enterAnim="@anim/from_bottom"
+            app:exitAnim="@anim/to_top" />
+        <action
+            android:id="@+id/action_splashScreenFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/from_bottom"
+            app:exitAnim="@anim/to_top" />
+        <action
+            android:id="@+id/action_splashScreenFragment_to_foodItemFragment"
+            app:destination="@id/foodItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onBoardingFragment"
+        android:name="com.yuwin.miniproject.Fragments.OnBoardingFragment"
+        android:label="fragment_on_boarding"
+        tools:layout="@layout/fragment_on_boarding" >
+        <action
+            android:id="@+id/action_onBoardingFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/from_bottom"
+            app:exitAnim="@anim/to_top" />
+    </fragment>
+    <fragment
+        android:id="@+id/cardFragment"
+        android:name="com.yuwin.miniproject.Fragments.CardFragment"
+        android:label="Cards"
+        tools:layout="@layout/fragment_card" >
+        <action
+            android:id="@+id/action_cardFragment_to_foodItemFragment"
+            app:destination="@id/foodItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.yuwin.miniproject.Fragments.SettingFragment"
+        android:label="Settings"
+        tools:layout="@layout/fragment_setting" >
+        <action
+            android:id="@+id/action_settingFragment_to_foodItemFragment"
+            app:destination="@id/foodItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactFragment"
+        android:name="com.yuwin.miniproject.Fragments.ContactFragment"
+        android:label="Contact"
+        tools:layout="@layout/fragment_contact" >
+        <action
+            android:id="@+id/action_contactFragment_to_foodItemFragment"
+            app:destination="@id/foodItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderFragment"
+        android:name="com.yuwin.miniproject.Fragments.OrderFragment"
+        android:label="Orders"
+        tools:layout="@layout/fragment_order" >
+        <action
+            android:id="@+id/action_orderFragment_to_foodItemFragment"
+            app:destination="@id/foodItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/checkoutFragment"
+        android:name="com.yuwin.miniproject.Fragments.CheckoutFragment"
+        android:label="Checkout"
+        tools:layout="@layout/fragment_checkout" >
+        <action
+            android:id="@+id/action_checkoutFragment_to_confirmationFragment"
+            app:destination="@id/confirmationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmationFragment"
+        android:name="com.yuwin.miniproject.Fragments.ConfirmationFragment"
+        android:label="Confirmation"
+        tools:layout="@layout/fragment_confirmation" />
+</navigation>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#95a5a6</color>
+    <color name="colorPrimaryDark">#7f8c8d</color>
+    <color name="colorAccent">#2c3e50</color>
+    
+    <color name="Orange">#F1794F</color>
+    <color name="White">#FFFFFF</color>
+    <color name="Green">#56CC56</color>
+    <color name="DarkGreen">#5C894E</color>
+    <color name="LightBlack">#302722</color>
+    <color name="error_colour">#e74c3c</color>
+
+    <color name="profileTextPrimary">#B0B0B0</color>
+    <color name="profileTextSecondary">#8F8F8F</color>
+</resources>
