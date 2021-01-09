@@ -100,7 +100,7 @@
             android:name="price"
             app:argType="string" />
         <action
-            android:id="@+id/action_upsellFragment_to_checkoutFragment"
+            android:id="@+id/Upsell_to_Checkout"
             app:destination="@id/checkoutFragment" />
     </fragment>
     <fragment
@@ -232,10 +232,20 @@
         <action
             android:id="@+id/action_checkoutFragment_to_confirmationFragment"
             app:destination="@id/confirmationFragment" />
+        <argument
+            android:name="total"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/confirmationFragment"
         android:name="com.yuwin.miniproject.Fragments.ConfirmationFragment"
         android:label="Confirmation"
-        tools:layout="@layout/fragment_confirmation" />
+        tools:layout="@layout/fragment_confirmation" >
+        <action
+            android:id="@+id/action_confirmationFragment_to_foodItemFragment"
+            app:destination="@id/foodItemFragment" />
+        <action
+            android:id="@+id/action_confirmationFragment_to_orderFragment"
+            app:destination="@id/orderFragment" />
+    </fragment>
 </navigation>

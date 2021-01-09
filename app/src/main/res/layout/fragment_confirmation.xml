@@ -1,14 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/congratz"
     tools:context=".Fragments.ConfirmationFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/ic_congratulations"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Congratulations"
+        android:textColor="@color/Orange"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/imageView9"
+        app:layout_constraintStart_toStartOf="@+id/imageView9"
+        app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Your order has been placed and it will be delivered to you soon"
+        android:textAlignment="center"
+        android:textColor="@color/LightBlack"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView26"
+        app:layout_constraintStart_toStartOf="@+id/textView26"
+        app:layout_constraintTop_toBottomOf="@+id/textView26" />
+
+    <Button
+        android:id="@+id/trackOrderButton"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/profile_button_active"
+        android:text="Track Order"
+        android:textAllCaps="false"
+        android:textColor="@color/White"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView27"
+        app:layout_constraintStart_toStartOf="@+id/textView27"
+        app:layout_constraintTop_toBottomOf="@+id/textView27" />
+
+    <Button
+        android:id="@+id/backToHomeButton"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/btn_orange"
+        android:text="Home"
+        android:textAllCaps="false"
+        android:textColor="@color/White"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/trackOrderButton"
+        app:layout_constraintStart_toStartOf="@+id/trackOrderButton"
+        app:layout_constraintTop_toBottomOf="@+id/trackOrderButton" />
+</androidx.constraintlayout.widget.ConstraintLayout>
