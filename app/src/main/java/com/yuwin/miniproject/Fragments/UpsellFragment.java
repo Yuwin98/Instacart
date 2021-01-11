@@ -52,9 +52,8 @@ public class UpsellFragment extends Fragment {
 
         mMealPriceTextView = view.findViewById(R.id.upsellMealPrice);
         mUpSellRecyclerView = view.findViewById(R.id.upsellRecyclerView);
-        showShimmer();
         mUpSellRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
-
+        showShimmer();
 
         String cleanPrice = mealPriceText.replace("$", "");
         float mealPrice = Float.parseFloat(cleanPrice);

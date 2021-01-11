@@ -45,9 +45,9 @@ public class SelectedPlaceFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         mTopOffersRecyclerView = view.findViewById(R.id.topOffersRecyclerView);
         mMostPopularRecyclerView = view.findViewById(R.id.mostPopularRecyclerView);
-        showShimmer();
         mMostPopularRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, true));
         mTopOffersRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        showShimmer();
         mAvailableMealAdapter = new AvailableMealAdapter();
         getData();
     }

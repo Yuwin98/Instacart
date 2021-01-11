@@ -54,9 +54,8 @@ public class SelectedMealFragment extends Fragment {
         AvailableMeal meal = SelectedMealFragmentArgs.fromBundle(getArguments()).getMeal();
 
         mOptionsRecyclerView = view.findViewById(R.id.optionsRecyclerView);
-        showShimmer();
         mOptionsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-
+        showShimmer();
         mMealImage = view.findViewById(R.id.mealImage);
         mMealName = view.findViewById(R.id.mealName);
         mMealPrice = view.findViewById(R.id.mealPrice);

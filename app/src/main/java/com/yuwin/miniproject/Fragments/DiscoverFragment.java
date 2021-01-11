@@ -70,10 +70,10 @@ public class DiscoverFragment extends Fragment {
         mostPopularRecyclerView = view.findViewById(R.id.mostPopularRecyclerView);
         bestDealsRecyclerView = view.findViewById(R.id.bestDealsRecyclerView);
         highestRatedRecyclerView = view.findViewById(R.id.highestRatedRecyclerView);
-        showShimmer();
         mostPopularRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         bestDealsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         highestRatedRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        showShimmer();
         getData("mostpopular", mpData);
         getData("highestrated", hrData);
         getData("bestdeals", bdData);
@@ -92,7 +92,6 @@ public class DiscoverFragment extends Fragment {
             case "mostpopular": {
                 mpAdapter.setData(data);
                 mostPopularRecyclerView.setAdapter(mpAdapter);
-
             }break;
             case "highestrated": {
                 hrAdapter.setData(data);
