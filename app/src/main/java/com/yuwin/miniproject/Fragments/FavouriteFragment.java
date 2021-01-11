@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.todkars.shimmer.ShimmerRecyclerView;
 import com.yuwin.miniproject.Models.FavouriteModel;
 import com.yuwin.miniproject.R;
 import com.yuwin.miniproject.RecyclerViews.Adapters.FavouriteAdapter;
@@ -27,9 +28,8 @@ import java.util.List;
 public class FavouriteFragment extends Fragment {
 
 
-    RecyclerView favouriteRecyclerView;
+    ShimmerRecyclerView favouriteRecyclerView;
     FavouriteAdapter mFavouriteAdapter;
-    ProgressBar mProgressBar;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,9 +47,9 @@ public class FavouriteFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mProgressBar = view.findViewById(R.id.favProgressBar);
         favouriteRecyclerView = view.findViewById(R.id.favouriteRecyclerView);
         favouriteRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        showShimmer();
         mFavouriteAdapter = new FavouriteAdapter(getContext());
         getData();
 
@@ -78,9 +78,17 @@ public class FavouriteFragment extends Fragment {
                     }
                     mFavouriteAdapter.setData(data);
                     favouriteRecyclerView.setAdapter(mFavouriteAdapter);
-                    mProgressBar.setVisibility(View.GONE);
+                    hideShimmer();
                 });
 
+    }
+
+    private void showShimmer() {
+        favouriteRecyclerView.showShimmer();
+    }
+
+    private  void hideShimmer() {
+        favouriteRecyclerView.hideShimmer();
     }
 
 
