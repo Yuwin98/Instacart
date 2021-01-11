@@ -20,11 +20,53 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/materialCardView"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/addNewCard"
         android:layout_width="350dp"
         android:layout_height="180dp"
+        android:background="@drawable/dashed_background"
+        android:visibility="visible"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/totalPriceTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:backgroundTintMode="add"
+                android:src="@drawable/ic_payments"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/profileTextSecondary" />
+
+            <TextView
+                android:id="@+id/textView34"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Add a new card"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/imageView12"
+                app:layout_constraintStart_toStartOf="@+id/imageView12"
+                app:layout_constraintTop_toBottomOf="@+id/imageView12" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/materialCardView"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:background="@drawable/visa_gradient"
         app:cardBackgroundColor="@color/Green"
@@ -73,10 +115,12 @@
                 android:id="@+id/textView31"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
                 android:text="Leslie Morgan"
                 android:textColor="@color/White"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/textView30"
                 app:layout_constraintTop_toBottomOf="@+id/textView30" />
 
@@ -102,50 +146,9 @@
                 app:layout_constraintStart_toStartOf="@+id/textView32"
                 app:layout_constraintTop_toBottomOf="@+id/textView32" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.card.MaterialCardView>
+    </androidx.cardview.widget.CardView>
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/addNewCard"
-        android:layout_width="350dp"
-        android:layout_height="180dp"
-        android:background="@drawable/dashed_background"
-        android:visibility="invisible"
-        app:cardCornerRadius="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView28">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/imageView12"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="60dp"
-                android:backgroundTintMode="add"
-                android:src="@drawable/ic_payments"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:tint="@color/profileTextSecondary" />
-
-            <TextView
-                android:id="@+id/textView34"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Add a new card"
-                android:textAlignment="center"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/imageView12"
-                app:layout_constraintStart_toStartOf="@+id/imageView12"
-                app:layout_constraintTop_toBottomOf="@+id/imageView12" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.card.MaterialCardView>
 
     <TextView
         android:id="@+id/totalPriceTextView"

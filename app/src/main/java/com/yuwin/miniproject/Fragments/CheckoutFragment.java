@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
@@ -21,6 +22,8 @@ public class CheckoutFragment extends Fragment {
     Button finishPurchaseButton;
     TextView totalPriceTextView;
 
+    CardView addCardCardView;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -33,6 +36,14 @@ public class CheckoutFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         String price = CheckoutFragmentArgs.fromBundle(getArguments()).getTotal();
+
+        addCardCardView = view.findViewById(R.id.addNewCard);
+        addCardCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(v).navigate(R.id.action_checkoutFragment_to_cardFragment);
+            }
+        });
 
         finishPurchaseButton = view.findViewById(R.id.finishPurchaseButton);
         finishPurchaseButton.setOnClickListener(new View.OnClickListener() {

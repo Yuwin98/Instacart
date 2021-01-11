@@ -112,12 +112,15 @@
         app:layout_constraintBottom_toBottomOf="@+id/mealImage"
         app:layout_constraintStart_toStartOf="@+id/mealImage" />
 
-    <androidx.recyclerview.widget.RecyclerView
+    <com.todkars.shimmer.ShimmerRecyclerView
         android:id="@+id/optionsRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
+        app:shimmer_recycler_layout="@layout/options_placeholder"
+        app:shimmer_recycler_item_count="3"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"

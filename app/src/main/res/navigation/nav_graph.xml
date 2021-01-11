@@ -101,7 +101,9 @@
             app:argType="string" />
         <action
             android:id="@+id/Upsell_to_Checkout"
-            app:destination="@id/checkoutFragment" />
+            app:destination="@id/checkoutFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -231,10 +233,15 @@
         tools:layout="@layout/fragment_checkout" >
         <action
             android:id="@+id/action_checkoutFragment_to_confirmationFragment"
-            app:destination="@id/confirmationFragment" />
+            app:destination="@id/confirmationFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left" />
         <argument
             android:name="total"
             app:argType="string" />
+        <action
+            android:id="@+id/action_checkoutFragment_to_cardFragment"
+            app:destination="@id/cardFragment" />
     </fragment>
     <fragment
         android:id="@+id/confirmationFragment"
@@ -243,9 +250,13 @@
         tools:layout="@layout/fragment_confirmation" >
         <action
             android:id="@+id/action_confirmationFragment_to_foodItemFragment"
-            app:destination="@id/foodItemFragment" />
+            app:destination="@id/foodItemFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_confirmationFragment_to_orderFragment"
-            app:destination="@id/orderFragment" />
+            app:destination="@id/orderFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left" />
     </fragment>
 </navigation>

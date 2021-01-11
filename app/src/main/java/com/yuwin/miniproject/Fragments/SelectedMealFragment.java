@@ -20,6 +20,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.todkars.shimmer.ShimmerRecyclerView;
 import com.yuwin.miniproject.Models.AvailableMeal;
 import com.yuwin.miniproject.Models.OptionsModel;
 import com.yuwin.miniproject.R;
@@ -37,7 +38,7 @@ public class SelectedMealFragment extends Fragment {
     TextView mTotalOrdersText;
     Button mPlaceOrderButton;
 
-    RecyclerView mOptionsRecyclerView;
+    ShimmerRecyclerView mOptionsRecyclerView;
     OptionsAdapter mOptionsAdapter;
 
     @Override
@@ -53,6 +54,7 @@ public class SelectedMealFragment extends Fragment {
         AvailableMeal meal = SelectedMealFragmentArgs.fromBundle(getArguments()).getMeal();
 
         mOptionsRecyclerView = view.findViewById(R.id.optionsRecyclerView);
+        showShimmer();
         mOptionsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
 
         mMealImage = view.findViewById(R.id.mealImage);
@@ -100,6 +102,15 @@ public class SelectedMealFragment extends Fragment {
                     }
                     mOptionsAdapter.setData(data);
                     mOptionsRecyclerView.setAdapter(mOptionsAdapter);
+                    hideShimmer();
                 });
+    }
+
+    private void showShimmer() {
+        mOptionsRecyclerView.showShimmer();
+    }
+
+    private void hideShimmer() {
+        mOptionsRecyclerView.hideShimmer();
     }
 }

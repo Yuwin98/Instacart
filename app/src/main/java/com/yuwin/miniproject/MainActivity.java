@@ -22,6 +22,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 
@@ -31,7 +32,7 @@ import android.view.MenuItem;
 import java.util.HashSet;
 import java.util.Set;
 
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     AppBarConfiguration appBarConfiguration;
     DrawerLayout drawerLayout;
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity  {
         setSupportActionBar(toolbar);
 
         NavigationView navigationView = findViewById(R.id.navigationView);
+        navigationView.setNavigationItemSelectedListener(this);
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         drawerLayout = findViewById(R.id.drawer_layout);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bootomNavigationView);
@@ -61,6 +63,8 @@ public class MainActivity extends AppCompatActivity  {
         topLevelDestinations.add(R.id.cardFragment);
         topLevelDestinations.add(R.id.settingFragment);
         topLevelDestinations.add(R.id.contactFragment);
+        topLevelDestinations.add(R.id.checkoutFragment);
+        topLevelDestinations.add(R.id.confirmationFragment);
 
 
         appBarConfiguration = new AppBarConfiguration.Builder(topLevelDestinations).setDrawerLayout(drawerLayout).build();
@@ -105,10 +109,6 @@ public class MainActivity extends AppCompatActivity  {
             navController.navigate(R.id.action_settingFragment_to_foodItemFragment);
             return;
         }
-        else if(navController.getCurrentDestination().getId() == R.id.cardFragment) {
-            navController.navigate(R.id.action_cardFragment_to_foodItemFragment);
-            return;
-        }
         else if(navController.getCurrentDestination().getId() == R.id.contactFragment) {
             navController.navigate(R.id.action_contactFragment_to_foodItemFragment);
             return;
@@ -119,5 +119,20 @@ public class MainActivity extends AppCompatActivity  {
 
         super.onBackPressed();
 //         NavigationUI.navigateUp(navController, appBarConfiguration);
+    }
+
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+        NavController navigation = Navigation.findNavController(this, R.id.nav_host_fragment);
+
+        switch (item.getItemId()){
+            case R.id.userFragment:navigation.navigate(R.id.userFragment);break;
+            case R.id.logout:
+                Log.d("drawer", "Drawer Selected");
+        }
+        drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
     }
 }

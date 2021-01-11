@@ -21,6 +21,7 @@ import android.widget.SearchView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.todkars.shimmer.ShimmerRecyclerView;
 import com.yuwin.miniproject.Models.AvailableMeal;
 import com.yuwin.miniproject.Models.DiscoverRestaurant;
 import com.yuwin.miniproject.R;
@@ -36,9 +37,11 @@ public class DiscoverFragment extends Fragment {
     ImageView featuredImageView;
     Random mRandom = new Random();
 
-    RecyclerView mostPopularRecyclerView;
-    RecyclerView bestDealsRecyclerView;
-    RecyclerView highestRatedRecyclerView;
+    ShimmerRecyclerView mostPopularRecyclerView;
+    ShimmerRecyclerView bestDealsRecyclerView;
+    ShimmerRecyclerView highestRatedRecyclerView;
+
+
 
     DiscoverRestaurantAdapter mpAdapter;
     DiscoverRestaurantAdapter bdAdapter;
@@ -59,6 +62,7 @@ public class DiscoverFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+
         mpAdapter = new DiscoverRestaurantAdapter();
         bdAdapter = new DiscoverRestaurantAdapter();
         hrAdapter = new DiscoverRestaurantAdapter();
@@ -66,11 +70,10 @@ public class DiscoverFragment extends Fragment {
         mostPopularRecyclerView = view.findViewById(R.id.mostPopularRecyclerView);
         bestDealsRecyclerView = view.findViewById(R.id.bestDealsRecyclerView);
         highestRatedRecyclerView = view.findViewById(R.id.highestRatedRecyclerView);
-
+        showShimmer();
         mostPopularRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         bestDealsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         highestRatedRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-
         getData("mostpopular", mpData);
         getData("highestrated", hrData);
         getData("bestdeals", bdData);
@@ -89,6 +92,7 @@ public class DiscoverFragment extends Fragment {
             case "mostpopular": {
                 mpAdapter.setData(data);
                 mostPopularRecyclerView.setAdapter(mpAdapter);
+
             }break;
             case "highestrated": {
                 hrAdapter.setData(data);
@@ -99,6 +103,7 @@ public class DiscoverFragment extends Fragment {
                 bestDealsRecyclerView.setAdapter(bdAdapter);
             }break;
         }
+        hideShimmer(collection);
     }
 
     private void getData(String collection, List<DiscoverRestaurant> data) {
@@ -110,7 +115,7 @@ public class DiscoverFragment extends Fragment {
                     if (task.isSuccessful()) {
 
                         for (QueryDocumentSnapshot document : task.getResult()) {
-                            int num = mRandom.nextInt(15);
+                            int num = mRandom.nextInt(15) + 1;
                             String numText = num + "Km";
                             data.add(new DiscoverRestaurant(
                                     document.getData().get("img").toString(),
@@ -126,5 +131,25 @@ public class DiscoverFragment extends Fragment {
 
                 });
 
+    }
+
+    private void showShimmer() {
+        mostPopularRecyclerView.showShimmer();
+        highestRatedRecyclerView.showShimmer();
+        bestDealsRecyclerView.showShimmer();
+    }
+
+    private void hideShimmer(String collection) {
+        switch (collection) {
+            case "mostpopular": {
+                mostPopularRecyclerView.hideShimmer();
+            }break;
+            case "highestrated": {
+                highestRatedRecyclerView.hideShimmer();
+            }break;
+            case "bestdeals": {
+                bestDealsRecyclerView.hideShimmer();
+            }break;
+        }
     }
 }

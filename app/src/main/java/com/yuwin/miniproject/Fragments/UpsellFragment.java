@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.todkars.shimmer.ShimmerRecyclerView;
 import com.yuwin.miniproject.Models.OptionsModel;
 import com.yuwin.miniproject.R;
 import com.yuwin.miniproject.RecyclerViews.Adapters.AvailableMealAdapter;
@@ -32,7 +33,7 @@ public class UpsellFragment extends Fragment {
     TextView mMealPriceTextView;
     Button checkoutButton;
 
-    RecyclerView mUpSellRecyclerView;
+    ShimmerRecyclerView mUpSellRecyclerView;
     OptionsAdapter mUpsellAdapter;
 
     @Override
@@ -51,6 +52,7 @@ public class UpsellFragment extends Fragment {
 
         mMealPriceTextView = view.findViewById(R.id.upsellMealPrice);
         mUpSellRecyclerView = view.findViewById(R.id.upsellRecyclerView);
+        showShimmer();
         mUpSellRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
 
 
@@ -93,6 +95,15 @@ public class UpsellFragment extends Fragment {
                     }
                     mUpsellAdapter.setData(data);
                     mUpSellRecyclerView.setAdapter(mUpsellAdapter);
+                    hideShimmer();
                 });
+    }
+
+    private void showShimmer() {
+        mUpSellRecyclerView.showShimmer();
+    }
+
+    private void hideShimmer() {
+        mUpSellRecyclerView.hideShimmer();
     }
 }

@@ -48,12 +48,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
-    <androidx.recyclerview.widget.RecyclerView
+    <com.todkars.shimmer.ShimmerRecyclerView
         android:id="@+id/upsellRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        app:shimmer_recycler_item_count="3"
+        app:shimmer_recycler_layout="@layout/options_placeholder"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />

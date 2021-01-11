@@ -7,19 +7,16 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.DiscoverFragment">
 
-    <include layout="@layout/searchview"/>
-
     <ImageView
         android:id="@+id/featuredImageView"
         android:layout_width="match_parent"
         android:layout_height="240dp"
-        android:layout_marginTop="20dp"
         android:background="@drawable/john"
         android:scaleType="centerCrop"
         android:src="@drawable/feature_image_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/featuredPlaceName"
@@ -71,12 +68,16 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <androidx.recyclerview.widget.RecyclerView
+            <com.todkars.shimmer.ShimmerRecyclerView
                 android:id="@+id/bestDealsRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp" />
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                app:shimmer_recycler_item_count="3"
+                app:shimmer_recycler_layout="@layout/discover_placeholder"
+                />
 
             <TextView
                 android:id="@+id/textView22"
@@ -89,12 +90,15 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <androidx.recyclerview.widget.RecyclerView
+            <com.todkars.shimmer.ShimmerRecyclerView
                 android:id="@+id/mostPopularRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp" />
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                app:shimmer_recycler_item_count="3"
+                app:shimmer_recycler_layout="@layout/discover_placeholder"/>
 
             <TextView
                 android:id="@+id/textView25"
@@ -107,13 +111,16 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <androidx.recyclerview.widget.RecyclerView
+            <com.todkars.shimmer.ShimmerRecyclerView
                 android:id="@+id/highestRatedRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="30dp" />
+                android:layout_marginBottom="30dp"
+                android:orientation="horizontal"
+                app:shimmer_recycler_item_count="3"
+                app:shimmer_recycler_layout="@layout/discover_placeholder"/>
 
 
         </LinearLayout>

@@ -17,6 +17,7 @@ import android.widget.ProgressBar;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.todkars.shimmer.ShimmerRecyclerView;
 import com.yuwin.miniproject.Models.AvailableMeal;
 import com.yuwin.miniproject.RecyclerViews.Adapters.AvailableMealAdapter;
 import com.yuwin.miniproject.R;
@@ -27,10 +28,10 @@ import java.util.List;
 
 public class SelectedPlaceFragment extends Fragment {
 
-    RecyclerView mTopOffersRecyclerView;
-    RecyclerView mMostPopularRecyclerView;
+    ShimmerRecyclerView mTopOffersRecyclerView;
+    ShimmerRecyclerView mMostPopularRecyclerView;
     AvailableMealAdapter mAvailableMealAdapter;
-    ProgressBar mProgressBar;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -42,9 +43,9 @@ public class SelectedPlaceFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mProgressBar = view.findViewById(R.id.selectedPlaceProgressBar);
         mTopOffersRecyclerView = view.findViewById(R.id.topOffersRecyclerView);
         mMostPopularRecyclerView = view.findViewById(R.id.mostPopularRecyclerView);
+        showShimmer();
         mMostPopularRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, true));
         mTopOffersRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         mAvailableMealAdapter = new AvailableMealAdapter();
@@ -73,8 +74,18 @@ public class SelectedPlaceFragment extends Fragment {
                     mAvailableMealAdapter.setData(data);
                     mTopOffersRecyclerView.setAdapter(mAvailableMealAdapter);
                     mMostPopularRecyclerView.setAdapter(mAvailableMealAdapter);
-                    mProgressBar.setVisibility(View.GONE);
+                    hideShimmer();
                 });
 
+    }
+
+    private void showShimmer() {
+        mTopOffersRecyclerView.showShimmer();
+        mMostPopularRecyclerView.showShimmer();
+    }
+
+    private void hideShimmer() {
+        mTopOffersRecyclerView.hideShimmer();
+        mMostPopularRecyclerView.hideShimmer();
     }
 }
