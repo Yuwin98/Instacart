@@ -24,6 +24,7 @@ public class OptionsAdapter extends RecyclerView.Adapter<OptionsViewHolder> {
     private Context mContext;
     private float mealPrice;
     private TextView mealPriceTextView;
+    private String totalPrice = "";
     private float optionsPrice = 0;
 
     public OptionsAdapter(Context context, float mealPrice, TextView mealPriceTextView) {
@@ -57,7 +58,8 @@ public class OptionsAdapter extends RecyclerView.Adapter<OptionsViewHolder> {
                 holder.optionsCard.setCardBackgroundColor(ContextCompat.getColor(mContext, R.color.White));
                 holder.mOptionsNameTextView.setTextColor(ContextCompat.getColor(mContext, R.color.LightBlack));
             }
-            mealPriceTextView.setText((mealPrice + optionsPrice) + "$");
+            totalPrice = (mealPrice + optionsPrice) + "$";
+            mealPriceTextView.setText(totalPrice);
             data.get(position).setSelected(!isSelected);
         });
     }
@@ -69,5 +71,9 @@ public class OptionsAdapter extends RecyclerView.Adapter<OptionsViewHolder> {
 
     public void setData(List<OptionsModel> data) {
         this.data = data;
+    }
+
+    public String getMealPrice() {
+        return  totalPrice;
     }
 }

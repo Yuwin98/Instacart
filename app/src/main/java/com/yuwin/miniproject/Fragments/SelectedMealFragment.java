@@ -71,7 +71,7 @@ public class SelectedMealFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 String mealPrice = mMealPrice.getText().toString();
-                SelectedMealFragmentDirections.MealToUpsell action = SelectedMealFragmentDirections.MealToUpsell(mealPrice);
+                SelectedMealFragmentDirections.MealToUpsell action = SelectedMealFragmentDirections.MealToUpsell(mealPrice,meal);
                 Navigation.findNavController(view).navigate(action);
             }
         });

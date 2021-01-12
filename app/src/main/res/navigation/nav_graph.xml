@@ -106,6 +106,9 @@
             app:exitAnim="@anim/to_left"
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right" />
+        <argument
+            android:name="meal"
+            app:argType="com.yuwin.miniproject.Models.AvailableMeal" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -200,6 +203,13 @@
         <action
             android:id="@+id/action_cardFragment_to_foodItemFragment"
             app:destination="@id/foodItemFragment" />
+        <action
+            android:id="@+id/action_cardFragment_to_addCardFragment"
+            app:destination="@id/addCardFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/settingFragment"
@@ -222,11 +232,18 @@
     <fragment
         android:id="@+id/orderFragment"
         android:name="com.yuwin.miniproject.Fragments.OrderFragment"
-        android:label="Orders"
+        android:label="Your Orders"
         tools:layout="@layout/fragment_order" >
         <action
             android:id="@+id/action_orderFragment_to_foodItemFragment"
             app:destination="@id/foodItemFragment" />
+        <action
+            android:id="@+id/action_orderFragment_to_orderTrackFragment"
+            app:destination="@id/orderTrackFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/checkoutFragment"
@@ -248,6 +265,9 @@
             app:destination="@id/cardFragment"
             app:enterAnim="@anim/from_left"
             app:exitAnim="@anim/to_right" />
+        <argument
+            android:name="meal"
+            app:argType="com.yuwin.miniproject.Models.AvailableMeal" />
     </fragment>
     <fragment
         android:id="@+id/confirmationFragment"
@@ -264,5 +284,25 @@
             app:destination="@id/orderFragment"
             app:enterAnim="@anim/from_right"
             app:exitAnim="@anim/to_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/addCardFragment"
+        android:name="com.yuwin.miniproject.Fragments.AddCardFragment"
+        android:label="Add Card"
+        tools:layout="@layout/fragment_add_card" >
+        <action
+            android:id="@+id/action_addCardFragment_to_cardFragment"
+            app:destination="@id/cardFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderTrackFragment"
+        android:name="com.yuwin.miniproject.Fragments.OrderTrackFragment"
+        android:label="Track Order"
+        tools:layout="@layout/fragment_order_track" >
+        <action
+            android:id="@+id/action_orderTrackFragment_to_orderFragment"
+            app:destination="@id/orderFragment" />
     </fragment>
 </navigation>

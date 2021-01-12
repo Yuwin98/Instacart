@@ -1,4 +1,23 @@
 <resources>
+    <string name="app_name">InstaCart</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="no_account">Don\'t Have an Account <u><b>Sign Up Here</b></u></string>
+    <string name="has_account">Already Have an Account <u><b>Sign In Here</b></u></string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="what_would_you_like_to_eat">What Would You Like To Eat?</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="food_desc">Cheese penne pasta is made by penne pasta and broccoli, parmesan cheese and tomato slices mixed with salt and pepper. </string>
+    <!-- TODO: Remove or change this placeholder text -->
     <string-array name="languages">
         <item>English (US)</item>
         <item>English (UK)</item>
@@ -6,7 +25,6 @@
         <item>German</item>
         <item>French</item>
     </string-array>
-
     <string-array name="locations">
         <item>Colombo</item>
         <item>Dehiwala</item>
@@ -17,22 +35,4 @@
         <item>Galle</item>
         <item>Moratuwa</item>
     </string-array>
-
-    <string name="app_name">InstaCart</string>
-    <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-
-    <string name="no_account">Don\'t Have an Account <u><b>Sign Up Here</b></u></string>
-    <string name="has_account">Already Have an Account <u><b>Sign In Here</b></u></string>
-
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="what_would_you_like_to_eat">What Would You Like To Eat?</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="food_desc">Cheese penne pasta is made by penne pasta and broccoli, parmesan cheese and tomato slices mixed with salt and pepper. </string>
 </resources>

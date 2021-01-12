@@ -19,6 +19,7 @@ import android.widget.TextView;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.todkars.shimmer.ShimmerRecyclerView;
+import com.yuwin.miniproject.Models.AvailableMeal;
 import com.yuwin.miniproject.Models.OptionsModel;
 import com.yuwin.miniproject.R;
 import com.yuwin.miniproject.RecyclerViews.Adapters.AvailableMealAdapter;
@@ -47,7 +48,7 @@ public class UpsellFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         String mealPriceText = UpsellFragmentArgs.fromBundle(getArguments()).getPrice();
-
+        AvailableMeal meal = UpsellFragmentArgs.fromBundle(getArguments()).getMeal();
         checkoutButton = view.findViewById(R.id.checkoutButton);
 
         mMealPriceTextView = view.findViewById(R.id.upsellMealPrice);
@@ -58,17 +59,20 @@ public class UpsellFragment extends Fragment {
         String cleanPrice = mealPriceText.replace("$", "");
         float mealPrice = Float.parseFloat(cleanPrice);
 
+
+
+        mMealPriceTextView.setText(mealPriceText);
+        mUpsellAdapter = new OptionsAdapter(getActivity().getApplicationContext(), mealPrice, mMealPriceTextView);
+
         checkoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UpsellFragmentDirections.UpsellToCheckout action = UpsellFragmentDirections.UpsellToCheckout(mealPriceText);
+                UpsellFragmentDirections.UpsellToCheckout action = UpsellFragmentDirections.UpsellToCheckout(mUpsellAdapter.getMealPrice(), meal);
                 Navigation.findNavController(v)
                         .navigate(action);
             }
         });
 
-        mMealPriceTextView.setText(mealPriceText);
-        mUpsellAdapter = new OptionsAdapter(getActivity().getApplicationContext(), mealPrice, mMealPriceTextView);
         getData();
 
     }
