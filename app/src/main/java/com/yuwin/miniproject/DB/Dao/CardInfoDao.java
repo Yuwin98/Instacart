@@ -2,6 +2,7 @@ package com.yuwin.miniproject.DB.Dao;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
@@ -21,5 +22,8 @@ public interface CardInfoDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertCardData(CardEntity cardData);
+
+    @Delete
+    void deleteCard(CardEntity cardEntity);
 
 }

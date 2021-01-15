@@ -1,20 +1,17 @@
 package com.yuwin.miniproject.Fragments;
 
-import android.content.res.ColorStateList;
 import android.os.Bundle;
 
-import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.Navigation;
 
-import android.provider.CalendarContract;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -24,6 +21,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.yuwin.miniproject.DB.AppDatabase;
 import com.yuwin.miniproject.DB.Entity.CardEntity;
 import com.yuwin.miniproject.R;
+import com.yuwin.miniproject.utility.Utility;
 
 
 public class CardFragment extends Fragment {
@@ -63,13 +61,24 @@ public class CardFragment extends Fragment {
         if(appDB.cardInfoDao().count() == 1) {
             cardEntity = appDB.cardInfoDao().getUserCards();
             userCardView.setVisibility(View.VISIBLE);
-            setImageIcon(creditCardType);
+            Utility.setImageIcon(creditCardType, cardEntity);
             userCardNumber.setText(cardEntity.getCardNumber());
             cardOwnerName.setText(cardEntity.getCardOwner());
             cardExpiryDate.setText(cardEntity.getCardExpirationDate());
         }
 
+        userCardView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
 
+                if(mActionMode != null){
+                    return false;
+                }
+                mActionMode = v.startActionMode(mActionModeCallback);
+
+                return true;
+            }
+        });
 
         addCardFab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,12 +89,36 @@ public class CardFragment extends Fragment {
 
     }
 
-    private void setImageIcon(ImageView cardView) {
-        char cardNumber = cardEntity.cardNumber.charAt(0);
-        if(cardNumber == '4') {
-            cardView.setImageResource(R.drawable.ic_visa);
-        }else if(cardNumber == '5') {
-            cardView.setImageResource(R.drawable.ic_mastercard);
+    private ActionMode.Callback mActionModeCallback = new ActionMode.Callback() {
+        @Override
+        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+            mode.getMenuInflater().inflate(R.menu.action_menu, menu);
+            return true;
         }
-    }
+
+        @Override
+        public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+            return false;
+        }
+
+        @Override
+        public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.delete_card:{
+                    userCardView.setVisibility(View.INVISIBLE);
+                    appDB.cardInfoDao().deleteCard(cardEntity);
+                    mode.finish();
+                    return true;
+                }
+                default:return false;
+            }
+        }
+
+        @Override
+        public void onDestroyActionMode(ActionMode mode) {
+            mActionMode = null;
+        }
+    };
+
+
 }

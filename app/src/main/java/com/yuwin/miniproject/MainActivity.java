@@ -116,6 +116,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             navController.navigate(R.id.action_selectedPlaceFragment_to_discoverFragment);
             return;
         }
+        else if(navController.getCurrentDestination().getId() == R.id.cardFragment) {
+            navController.navigate(R.id.action_cardFragment_to_foodItemFragment);
+            return;
+        }
 
         super.onBackPressed();
 //         NavigationUI.navigateUp(navController, appBarConfiguration);

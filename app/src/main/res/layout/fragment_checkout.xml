@@ -25,12 +25,12 @@
         android:layout_width="350dp"
         android:layout_height="180dp"
         android:background="@drawable/dashed_background"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:cardCornerRadius="10dp"
         app:layout_constraintBottom_toTopOf="@+id/totalPriceTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/materialCardView">
+        app:layout_constraintTop_toBottomOf="@+id/textView28">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -41,7 +41,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="60dp"
-                android:backgroundTintMode="add"
                 android:src="@drawable/ic_payments"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -64,11 +63,12 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/materialCardView"
+        android:id="@+id/paymentCreditCard"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:background="@drawable/visa_gradient"
+        android:visibility="invisible"
         app:cardBackgroundColor="@color/Green"
         app:cardCornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -80,7 +80,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageView10"
+                android:id="@+id/paymentCardType"
                 android:layout_width="60dp"
                 android:layout_height="20dp"
                 android:layout_marginStart="20dp"
@@ -90,15 +90,15 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView29"
+                android:id="@+id/paymentCardNumber"
                 android:layout_width="210dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:text="****     ****     ****     4213"
                 android:textColor="@color/White"
                 android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/imageView10"
-                app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+                app:layout_constraintStart_toStartOf="@+id/paymentCardType"
+                app:layout_constraintTop_toBottomOf="@+id/paymentCardType" />
 
             <TextView
                 android:id="@+id/textView30"
@@ -108,11 +108,11 @@
                 android:text="Cardholder's Name"
                 android:textColor="@color/White"
                 android:textSize="12sp"
-                app:layout_constraintStart_toStartOf="@+id/textView29"
-                app:layout_constraintTop_toBottomOf="@+id/textView29" />
+                app:layout_constraintStart_toStartOf="@+id/paymentCardNumber"
+                app:layout_constraintTop_toBottomOf="@+id/paymentCardNumber" />
 
             <TextView
-                android:id="@+id/textView31"
+                android:id="@+id/paymentCardOwner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
@@ -136,7 +136,7 @@
                 app:layout_constraintTop_toTopOf="@+id/textView30" />
 
             <TextView
-                android:id="@+id/textView33"
+                android:id="@+id/paymentCardExpiration"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="02 / 25"

@@ -31,6 +31,7 @@ public class OptionsAdapter extends RecyclerView.Adapter<OptionsViewHolder> {
         mContext = context;
         this.mealPrice = mealPrice;
         this.mealPriceTextView = mealPriceTextView;
+        totalPrice = mealPrice + "";
     }
 
     @NonNull
@@ -58,6 +59,7 @@ public class OptionsAdapter extends RecyclerView.Adapter<OptionsViewHolder> {
                 holder.optionsCard.setCardBackgroundColor(ContextCompat.getColor(mContext, R.color.White));
                 holder.mOptionsNameTextView.setTextColor(ContextCompat.getColor(mContext, R.color.LightBlack));
             }
+            totalPrice = "";
             totalPrice = (mealPrice + optionsPrice) + "$";
             mealPriceTextView.setText(totalPrice);
             data.get(position).setSelected(!isSelected);
