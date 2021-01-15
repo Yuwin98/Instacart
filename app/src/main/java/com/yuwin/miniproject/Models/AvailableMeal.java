@@ -5,19 +5,19 @@ import android.os.Parcelable;
 
 public class AvailableMeal implements Parcelable {
 
-    private String ImageID;
+    private String ImageUrl;
     private String mealName;
     private String mealPrice;
 
 
-    public AvailableMeal(String imageID, String mealName, String mealPrice) {
-        ImageID = imageID;
+    public AvailableMeal(String imageUrl, String mealName, String mealPrice) {
+        ImageUrl = imageUrl;
         this.mealName = mealName;
         this.mealPrice = mealPrice;
     }
 
     protected AvailableMeal(Parcel in) {
-        ImageID = in.readString();
+        ImageUrl = in.readString();
         mealName = in.readString();
         mealPrice = in.readString();
     }
@@ -34,12 +34,12 @@ public class AvailableMeal implements Parcelable {
         }
     };
 
-    public String getImageID() {
-        return ImageID;
+    public String getImageUrl() {
+        return ImageUrl;
     }
 
-    public void setImageID(String imageID) {
-        ImageID = imageID;
+    public void setImageUrl(String imageUrl) {
+        ImageUrl = imageUrl;
     }
 
     public String getMealName() {
@@ -75,7 +75,7 @@ public class AvailableMeal implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(ImageID);
+        parcel.writeString(ImageUrl);
         parcel.writeString(mealName);
         parcel.writeString(mealPrice);
     }

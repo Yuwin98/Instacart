@@ -133,8 +133,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         switch (item.getItemId()){
             case R.id.userFragment:navigation.navigate(R.id.userFragment);break;
-            case R.id.logout:
-                Log.d("drawer", "Drawer Selected");
+
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;

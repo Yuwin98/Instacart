@@ -32,7 +32,7 @@ public class AvailableMealAdapter extends RecyclerView.Adapter<AvailableMealView
 
         holder.mealName.setText(topOffers.get(position).getMealName());
         holder.mealPrice.setText(topOffers.get(position).getMealPrice());
-        String url = topOffers.get(position).getImageID();
+        String url = topOffers.get(position).getImageUrl();
         Glide.with(holder.itemView).load(url).into(holder.ImageID);
 
         holder.ImageID.setOnClickListener(view -> {

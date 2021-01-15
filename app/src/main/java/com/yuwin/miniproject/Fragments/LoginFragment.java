@@ -49,6 +49,7 @@ public class LoginFragment extends Fragment {
         // Inflate the layout for this fragment
 
         mAuth = FirebaseAuth.getInstance();
+        mAuth.signOut();
         return inflater.inflate(R.layout.fragment_login, container, false);
     }
 

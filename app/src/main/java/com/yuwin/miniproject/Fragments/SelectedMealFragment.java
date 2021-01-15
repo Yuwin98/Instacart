@@ -7,7 +7,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -62,7 +61,7 @@ public class SelectedMealFragment extends Fragment {
         mTotalOrdersText = view.findViewById(R.id.mealOrderNumber);
         mPlaceOrderButton = view.findViewById(R.id.placeOrderButton);
 
-        Glide.with(view).load(meal.getImageID()).into(mMealImage);
+        Glide.with(view).load(meal.getImageUrl()).into(mMealImage);
         mMealName.setText(meal.getMealName());
         mMealPrice.setText(meal.getMealPrice());
         mTotalOrdersText.setText(meal.getMealOrders() + "K Orders");
