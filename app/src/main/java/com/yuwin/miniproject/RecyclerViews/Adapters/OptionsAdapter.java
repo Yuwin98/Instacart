@@ -24,14 +24,14 @@ public class OptionsAdapter extends RecyclerView.Adapter<OptionsViewHolder> {
     private Context mContext;
     private float mealPrice;
     private TextView mealPriceTextView;
-    private String totalPrice = "";
+    private String totalPrice;
     private float optionsPrice = 0;
 
     public OptionsAdapter(Context context, float mealPrice, TextView mealPriceTextView) {
         mContext = context;
         this.mealPrice = mealPrice;
         this.mealPriceTextView = mealPriceTextView;
-        totalPrice = mealPrice + "";
+        totalPrice = (int) mealPrice + "$";
     }
 
     @NonNull
@@ -76,6 +76,6 @@ public class OptionsAdapter extends RecyclerView.Adapter<OptionsViewHolder> {
     }
 
     public String getMealPrice() {
-        return  totalPrice;
+        return totalPrice;
     }
 }
