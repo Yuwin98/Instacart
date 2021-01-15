@@ -67,6 +67,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:text="@string/food_desc"
+        android:textAlignment="center"
         android:textColor="@color/profileTextSecondary"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"

@@ -80,12 +80,16 @@ public class CheckoutFragment extends Fragment {
         paymentCreditCard = view.findViewById(R.id.paymentCreditCard);
         addNewCreditCard = view.findViewById(R.id.addNewCard);
 
+        finishPurchaseButton = view.findViewById(R.id.finishPurchaseButton);
+        finishPurchaseButton.setEnabled(true);
+
         paymentCardType = view.findViewById(R.id.paymentCardType);
         paymentCardNumber = view.findViewById(R.id.paymentCardNumber);
         paymentCardOwner = view.findViewById(R.id.paymentCardOwner);
         paymentCardExpiryDate = view.findViewById(R.id.paymentCardExpiration);
 
         if(appDB.cardInfoDao().count() == 0) {
+            finishPurchaseButton.setVisibility(View.INVISIBLE);
             paymentCreditCard.setVisibility(View.INVISIBLE);
             addNewCreditCard.setVisibility(View.VISIBLE);
         }else {
@@ -95,6 +99,7 @@ public class CheckoutFragment extends Fragment {
             paymentCardOwner.setText(cardEntity.getCardOwner());
             paymentCardExpiryDate.setText(cardEntity.getCardExpirationDate());
             paymentCreditCard.setVisibility(View.VISIBLE);
+            finishPurchaseButton.setVisibility(View.VISIBLE);
             addNewCreditCard.setVisibility(View.INVISIBLE);
         }
 
@@ -107,8 +112,7 @@ public class CheckoutFragment extends Fragment {
 
 
 
-        finishPurchaseButton = view.findViewById(R.id.finishPurchaseButton);
-        finishPurchaseButton.setEnabled(true);
+
         finishPurchaseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
