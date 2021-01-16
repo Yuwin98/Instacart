@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -32,6 +33,14 @@ public class DiscoverRestaurantAdapter extends RecyclerView.Adapter<DiscoverRest
         holder.restaurantDistance.setText(data.get(position).getRestaurantDistance());
         String url = data.get(position).getImageID();
         Glide.with(holder.itemView).load(url).into(holder.mImageView);
+        holder.restaurantCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(v)
+                        .navigate(R.id.action_discoverFragment_to_selectedPlaceFragment);
+            }
+        });
+
 
     }
 
