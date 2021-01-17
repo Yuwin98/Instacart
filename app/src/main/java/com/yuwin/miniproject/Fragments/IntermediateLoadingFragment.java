@@ -42,7 +42,7 @@ public class IntermediateLoadingFragment extends Fragment {
         String email = IntermediateLoadingFragmentArgs.fromBundle(getArguments()).getEmail();
         String password = IntermediateLoadingFragmentArgs.fromBundle(getArguments()).getPassword();
 
-        singIn("yuwinsapumana212@gmail.com", "abcd1234");
+        singIn(email    , password);
 
     }
 
